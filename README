@@ -1,0 +1,12 @@
+Generators
+==========
+
+Randomness in Haskell has always been an *ugly* affair, requiring acquisition of a `RandomGen` value and then a threading of each successive generator throughout the code. The `System.Random` library, while flexible, is rather unwieldly for common applications.
+
+In particular, making a series of random decisions (such as navigating a random path through a space, or generating a sequence of text), or negotiating situations where the set of options for a random generator are dependent on the previously determined random value, are rather unimpressive using `System.Random`, and fail to demonstrate Haskell's excellent expressive power.
+
+Random generators in `System.Random` are tied to data types, instances of the `Random` typeclass, and more complicated generators must be painstakingly specified.
+
+In this Literate Haskell Module I present a `Generator` data structure, a Monad, that when provided with a seed value or a `RandomGen` value, will provide an infinite list of random choices based on some composition of other `Generator`s. 
+
+This module is released under the BSD3 license.
